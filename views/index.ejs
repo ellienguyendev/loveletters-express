@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Affirmation Station</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Beth+Ellen|Roboto+Condensed|Oswald|Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+  <h1>- Love Letters to Self -</h1>
+
+  </header>
+  <form action="/messages" method="POST">
+    <input type="text" placeholder="Affirmations, reminders, compliments, love notes..." name="msg">
+    <button type="submit">I AM</button>
+  </form>
+
+<section>
+
+<% for(var i=0; i<logs.length; i++) {%>
+
+  <ul class="messages">
+
+    <li class="message floatLeft">
+      <p style="color:#<%= logs[i].color %>"><%= logs[i].msg %></p>
+      <span><%= logs[i].days %></span>
+      <% if(logs[i].days === 1 ){  %>
+        <span> DAY AFFIRMED</span>
+      <% } %>
+      <% if(logs[i].days !== 1 ){ %>
+        <span> DAYS AFFIRMED</span>
+      <% } %>
+      <span><i class="fas fa-heart" aria-hidden="true"></i></span>
+      <span><i class="fas fa-star" aria-hidden="true"></i></span>
+      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+    </li>
+    <% } %>
+  </ul>
+  </section>
+
+
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
